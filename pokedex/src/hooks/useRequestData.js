@@ -2,35 +2,25 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 
-const useRequestData = ((url, initialState) => {
+const useRequestData = ((url, initialState, qnttPokemons) => {
+
     const [data, setData] = useState(initialState);
+    let pokemonsDetails = [];
+    
     const getPokemons = (() => {
-        axios.get(url)
-            .then((res) => {
-                setData(res.data)
-            });
-    });
+        
+        for (let i = 1; i <= qnttPokemons; i++) {
+            axios
+            .get(`${url}/${i}`)
+            .then(res => pokemonsDetails.push(res.data))
+        }
+        setData(pokemonsDetails)
+    })
+
     useEffect(() => {
         getPokemons()
     }, []);
 
-    // const detailsPokemon = getPokemons() && getPokemons.map((pokemon) => {
-    //     axios.get(pokemon.url)
-    //     .then(() => {
-    //         console.log("oi")
-    //     });
-    // });
-    // return (
-    //     <div>
-    //         { () => getPokemons() && getPokemons.map((pokemon) => {
-    //             return(
-    //                 <p>{pokemon.data}</p>
-    //             )
-    //         })}
-    //     </div>
-    // )
-
-console.log(data)
     return data;
 });
 
