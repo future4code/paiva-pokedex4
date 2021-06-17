@@ -12,11 +12,18 @@ const useRequestData = ((url, initialState, qnttPokemons) => {
         for (let i = 1; i <= qnttPokemons; i++) {
             axios
             .get(`${url}/${i}`)
-            .then(res => pokemonsDetails.push(res.data))
+            .then((res) => {
+                pokemonsDetails.push(res.data)
+                if (pokemonsDetails.length === qnttPokemons) {
+                    pokemonsDetails.sort((a,b) => {
+                        return a.id - b.id
+                    })
+                    setData(pokemonsDetails)
+                }  
+            })
         }
-        setData(pokemonsDetails)
     })
-
+    
     useEffect(() => {
         getPokemons()
     }, []);

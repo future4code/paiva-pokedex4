@@ -1,14 +1,11 @@
 import styled from "styled-components";
 
-export const Main = styled.div`
+export const Card = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 4fr 1fr;
-    justify-items: center;  
+    grid-template-rows: 5fr 1fr 1fr;
     width: 200px;
-    border: 1px solid black;
     margin: 1rem;
-    background-color: lightskyblue;
 `
 
 export const ButtonsTag = styled.div`
@@ -18,6 +15,10 @@ export const ButtonsTag = styled.div`
     button{
         width: 100%;
     }
+    grid-row: 3;
+    button {
+        margin: 5px;
+    }
 `
 
 export const ImgTag = styled.div`
@@ -25,4 +26,23 @@ export const ImgTag = styled.div`
     display: flex;
     justify-content: center;
     background-size: cover;
+    background-color: #F2F2F2;
+    width: 100%;
+    border-radius: 5px;
+    img {
+        width: 100%;
+    }
+
 `
+
+export const NameId = styled.div`
+    grid-column: 1/ span 3;
+    grid-row: 2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    height: 40px;
+    
+`
+
