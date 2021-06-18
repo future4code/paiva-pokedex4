@@ -7,7 +7,7 @@ export const GlobalState = (props) => {
 
     const [pokedex, setpokedex] = useState([])
 
-    const pokemons = useRequestData(BASE_URL, [], 50)
+    const pokemons = useRequestData(BASE_URL, [], 151)
 
     return <GlobalStateContext.Provider value={{ pokedex, setpokedex, pokemons }}>
             {props.children}
