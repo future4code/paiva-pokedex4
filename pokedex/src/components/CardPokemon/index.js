@@ -1,17 +1,30 @@
-import React from "react";
+import React, { useContext} from "react";
 import { Card, ButtonsTag, ImgTag, NameId } from "./styled";
 import { useHistory } from "react-router-dom";
-import { goToDetailPage, goToPokedexPage } from "../../routes/cordinator";
-import useRequestData from "../../hooks/useRequestData";
-import { BASE_URL } from "../../constants/baseUrl";
-import axios from "axios";
-import Header from "../Header/Header";
+import { goToDetailPage } from "../../routes/cordinator";
+import { GlobalStateContext } from "../../global/GlobalStateContext";
+
 
 export default function CardPokemon() {
     const history = useHistory()
 
-    const pokemons = useRequestData(BASE_URL, [], 5)
-    console.log(pokemons)
+    const {pokedex, setpokedex, pokemons} = useContext(GlobalStateContext)
+
+    const addPokemonToPokedex = (pokemonToAdd) => {
+        const index = pokedex.findIndex((pokemonInPokedex) => {
+            if (pokemonInPokedex.id === pokemonToAdd.id) {
+                return true
+            } else {
+                return false
+            }
+        })
+
+        if (index === -1) {
+            const pokedexCopy = [...pokedex, pokemonToAdd]
+            setpokedex(pokedexCopy)
+        }        
+    }
+
     return (
         pokemons && pokemons.map((pokemon) => {
             return (
@@ -25,13 +38,13 @@ export default function CardPokemon() {
                     </NameId>
                     
                     <ButtonsTag>
-                        <button onClick={() => goToDetailPage(history)}>Detalhes</button>
+                        <button onClick={() => goToDetailPage(history, pokemon.id)}>Detalhes</button>
                     </ButtonsTag>
                     <ButtonsTag>
-                        <button onClick={() => goToPokedexPage(history)}>Adicionar</button>
+                        <button onClick={() => addPokemonToPokedex(pokemon)}>Adicionar</button>
                     </ButtonsTag>
                 </Card>
             )
-        })
+        }) 
     )
 }
