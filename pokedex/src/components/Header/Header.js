@@ -7,7 +7,7 @@ import {Main, Logo} from './styled'
 export default function Header() {
 
     const history = useHistory()
-
+ 
     switch (history.location.pathname) {
         case "/":
             return (
@@ -22,11 +22,10 @@ export default function Header() {
                     <a onClick={() => goToHomePage(history)}><Logo src={logoPokedex} alt="logomarca"/> </a>
                 </Main>
             )
-        case "/details":
+        case `/details/${(history.location.pathname).substr(9)}`:
             return (
                 <Main>
                     <a onClick={() => goToHomePage(history)}><Logo src={logoPokedex} alt="logomarca"/> </a>
-                    <button>💛/❌</button>
                 </Main>
             )    
         default:

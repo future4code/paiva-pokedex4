@@ -19,7 +19,7 @@ const useRequestData = ((url, initialState, qnttPokemons) => {
                         return a.id - b.id
                     })
                     setData(pokemonsDetails)
-                }  
+                }
             })
         }
     })
