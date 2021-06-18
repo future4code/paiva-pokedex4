@@ -46,7 +46,7 @@ export default function DetailPokemon() {
                             {pokemon.types.map((typePokemon) => {
                                 return (
                                     <ContainerType>
-                                        <h4>{typePokemon.type.name}</h4>
+                                        <p>{typePokemon.type.name}</p>
                                     </ContainerType>
                                 )
                             })}

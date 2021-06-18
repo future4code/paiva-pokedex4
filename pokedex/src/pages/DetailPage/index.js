@@ -8,7 +8,6 @@ function DetailPage() {
     <div>
       <Header />
       <DetailPokemon />
-      <Footer />
     </div>
   );
 }
