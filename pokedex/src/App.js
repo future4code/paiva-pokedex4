@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Router from './routes/Router';
 import {GlobalState} from './global/GlobalState'
 

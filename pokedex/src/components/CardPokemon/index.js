@@ -30,7 +30,7 @@ export default function CardPokemon() {
             return (
                 <Card key={pokemon.id}>
                     <ImgTag>
-                        <img src={pokemon.sprites.other["official-artwork"].front_default} />
+                        <img src={pokemon.sprites.other["official-artwork"].front_default} alt="Pokemon" />
                     </ImgTag>
                     <NameId>
                         <h5>{pokemon.id < 10 ? `N° 00${pokemon.id}` : pokemon.id < 100 ? `N° 0${pokemon.id}` : `N° ${pokemon.id}`}</h5>

@@ -26,6 +26,7 @@ export default function Header() {
             return (
                 <Main>
                     <a onClick={() => goToHomePage(history)}><Logo src={logoPokedex} alt="logomarca"/> </a>
+                    <button onClick={() => goToPokedexPage(history)}>Pokedex</button>
                 </Main>
             )    
         default:
