@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { keyframes } from 'styled-components'
+import { keyframes } from 'styled-components';
 
 const Heading = keyframes`
      0%, 20% 60%, 100%{
@@ -17,11 +17,10 @@ const Heading = keyframes`
     }
 `
 
-
 export const Card = styled.div`
     width: 200px;
     margin: 1rem;
-    :hover{animation: ${Heading} 1s;
+    :hover{animation: ${Heading} 1s};
 `
 
 export const ButtonsTag = styled.div`
@@ -33,6 +32,7 @@ export const ButtonsTag = styled.div`
         background-color: #35ACCE;
         border: none;
         color: white;
+        border-radius: 8px;
         cursor: pointer;
         &:hover{
             background-color: #006593;

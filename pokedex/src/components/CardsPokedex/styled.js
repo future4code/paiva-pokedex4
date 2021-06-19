@@ -33,6 +33,7 @@ export const ButtonsTag = styled.div`
         background-color: #35ACCE;
         border: none;
         color: white;
+        border-radius: 8px;
         cursor: pointer;
         &:hover{
             background-color: #006593;

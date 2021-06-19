@@ -29,6 +29,7 @@ export const Button = styled.div`
         padding: 0.5rem;
         background-color: #30a7d7;
         cursor: pointer;
+        color: white;
 
     }
 `

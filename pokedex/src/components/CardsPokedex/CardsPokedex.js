@@ -17,6 +17,7 @@ export default function CardsPokedex() {
             }
             return true
         })
+        alert("Pokemon removido da pokedex")
         setpokedex(pokedexCopy)
     }
 

@@ -7,6 +7,7 @@ export default function DetailPokemon() {
     const params = useParams();
     const { pokedex, setpokedex, pokemons } = useContext(GlobalStateContext)
 
+
     const addAndRemovePokemon = (pokemon) => {
         console.log(pokemon)
         const index = pokedex.findIndex((pokemonInPokedex) => {
@@ -19,6 +20,7 @@ export default function DetailPokemon() {
         if (index === -1) {
             const pokedexCopy = [...pokedex, pokemon]
             setpokedex(pokedexCopy)
+            alert("Pokemon adicionado a pokedex")
         } else if (index !== -1) {
             const pokedexCopy = pokedex.filter((pokemonInPokedex) => {
                 if (pokemonInPokedex.id === pokemon.id) {
@@ -27,9 +29,10 @@ export default function DetailPokemon() {
                 return true
             })
             setpokedex(pokedexCopy)
+            alert("Pokemon removido da pokedex")
         }
 
-        console.log("index: ", pokedex)
+
     }
 
     return (

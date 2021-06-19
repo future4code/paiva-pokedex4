@@ -16,6 +16,9 @@ export const Main = styled.div`
         margin: 1rem;
         background-color: #30a7d7;
         cursor: pointer;
+        height: 20px;
+        border-radius: 5px;
+        color: white;
 
 
     }

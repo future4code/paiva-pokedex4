@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../../components/Header/Header";
 import DetailPokemon from '../../components/DetailPokemon/DetailPokemon'
-import Footer from "../../components/Footer/Footer";
 import styled from 'styled-components'
 
 const Div = styled.div`

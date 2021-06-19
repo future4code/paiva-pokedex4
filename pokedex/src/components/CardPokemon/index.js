@@ -3,6 +3,7 @@ import { Card, ButtonsTag, ImgTag, NameId, ContainerPai } from "./styled";
 import { useHistory } from "react-router-dom";
 import { goToDetailPage } from "../../routes/cordinator";
 import { GlobalStateContext } from "../../global/GlobalStateContext";
+import Swal from "sweetalert2";
 
 
 export default function CardPokemon() {
@@ -22,7 +23,8 @@ export default function CardPokemon() {
         if (index === -1) {
             const pokedexCopy = [...pokedex, pokemonToAdd]
             setpokedex(pokedexCopy)
-        }        
+        }  
+        alert("Pokemon adicionado a pokedex")      
     }
 
     return (
@@ -40,7 +42,8 @@ export default function CardPokemon() {
                         
                         <ButtonsTag>
                             <button onClick={() => goToDetailPage(history, pokemon.id)}>Detalhes</button>
-                            <button onClick={() => addPokemonToPokedex(pokemon)}>Adicionar</button>
+                            <button onClick={() => addPokemonToPokedex(pokemon)}
+                            >Adicionar</button>
                         </ButtonsTag>
                     </Card>
                 </ContainerPai>
