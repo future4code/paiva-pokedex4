@@ -6,4 +6,4 @@ export const Main = styled.div`
     background-color: #313131;
     display: flex;
     bottom: 0;
-`
+    `

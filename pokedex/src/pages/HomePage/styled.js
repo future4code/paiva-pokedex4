@@ -3,7 +3,8 @@ import styled from "styled-components"
 export const Main = styled.div`
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;   
+    flex-wrap: wrap;
+    min-height: 100vh;
 `
 
 // display: grid;
