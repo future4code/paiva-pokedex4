@@ -1,4 +1,4 @@
-import React, { useContext, useState, useContext} from "react";
+import React, { useContext} from "react";
 import { Card, ButtonsTag, ImgTag, NameId, ContainerPai } from "./styled";
 import { useHistory } from "react-router-dom";
 import { goToDetailPage } from "../../routes/cordinator";

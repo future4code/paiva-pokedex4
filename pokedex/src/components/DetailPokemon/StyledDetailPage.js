@@ -130,5 +130,6 @@ export const ValorPlot = styled.p`
   color: white;
   background-color: white;
   color: black;
-
+  margin-left: 10px;
+  margin-right: 10px;
 `;
