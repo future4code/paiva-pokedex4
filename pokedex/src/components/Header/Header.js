@@ -31,7 +31,9 @@ export default function Header() {
             )    
         default:
             return (
-                <div>Not Found</div>
-            ) 
+                <Main>
+                    <a onClick={() => goToHomePage(history)}><Logo src={logoPokedex} alt="logomarca"/> </a>
+                </Main>
+            )
     }
 }
