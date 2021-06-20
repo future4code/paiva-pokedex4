@@ -1,16 +1,13 @@
 import styled from "styled-components";
-import backgroundLigth from "../../img/backgroundLigth.png"
+import backPoke from "../../img/backPoke.jpeg"
 
 export const Container = styled.div`
-    width: 100%;
-    height: auto;
+    width: 80vw;
     display: flex;
     flex-direction: column;
-    background-image: url(${backgroundLigth});
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
+    align-items: center;
+    background-image: url(${backPoke});
+    background-repeat: repeat;
 `
 export const Identificacao = styled.div`
     width: 100%;
@@ -19,6 +16,7 @@ export const Identificacao = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 0.4rem;
+    line-height: 0;
 `
 
 export const Button = styled.div`
@@ -35,20 +33,21 @@ export const Button = styled.div`
 
 export const Pokemon = styled.div`
     width: 100%;
-    height: 80vh;
-    display: flex;
-`
-
-export const Img = styled.div`
-    width: 50%;
-    height: 100%;
+    height: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+
+`
+
+export const Img = styled.div`
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
     img{
         background-color: #f2f2f2;
         padding: 3rem;
-        border: 1px solid black;
     }
     .teste {
          position: relative;
@@ -69,18 +68,18 @@ export const Img = styled.div`
          opacity: 0;
      }
      .pri {
-         height: 200px;
-         width: 200px;
+         height: 160px;
+         width: 160px;
      }
      .seg {
-         height: 200px;
-         width: 200px; 
+         height: 160px;
+         width: 160px; 
      }
 
 `
 
 export const About = styled.div`
-    width: 50%;
+    width: 40%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -88,60 +87,48 @@ export const About = styled.div`
 `
 
 export const Type = styled.div`
+    width: 100%;
     display: flex;
     justify-content: space-around;
-    background-color: #313131;
-    color: #c1c1c1;
+    border-bottom: 1px solid darkblue;
+    flex-wrap: wrap;
+    color: black;
     div{
         display: flex;
+        width: 6rem;
+        height: 3rem;
         justify-content: center;
-        width: 6vw;
-        border-radius: 60%;
+        margin: 0.3rem;
+        border-radius: 10px;
+        background-color: #f2f2f2;
     }
 `
 
-export const Card1 = styled.div`
-    display: flex;
-    color: #c1c1c1;
-
-
-    div{
-        display: flex;
-        max-height: 60vh;
-
-    }
-
-`
 export const Abilities = styled.div`
-    width: 50%;
-    height: 60vh;
-    flex-direction: column;
-    background-color: #313131;
-    padding: 0 0 0 1rem;
-    margin: 1rem;
-    border-radius: 40px / 20px 25em 30px 35em;
-    overflow-y:hidden; 
-    overflow:scroll; 
-    ::-webkit-scrollbar {
-    display: none;
-    }
-
-   
-`
-
-export const Stats = styled.div`
-    width: 50%;
-    min-height: 60vh;
-    max-height: 60vh;
+    width: 100%;
+    min-height: 50%;
+    max-height: 50%;
     display: flex;
-    flex-direction: column;
-    background-color: #313131;
-    padding: 0 0 0 1rem;
-    margin: 1rem;
-    border-radius: 40px / 20px 25em 30px 35em;
+    justify-content: space-around;
+    border-bottom: 1px solid darkblue;
+    flex-wrap: wrap;    
     overflow-y:hidden; 
     overflow:scroll; 
     ::-webkit-scrollbar {
-    display: none;
+    display: none; 
     }
 `
+
+export const DivGraf = styled.div`
+    margin-top: 1rem;
+    width: 600px;
+    background-color: #35acce;
+`;
+
+export const ValorPlot = styled.p`
+  width: ${(props) => props.valor};
+  color: white;
+  background-color: white;
+  color: black;
+
+`;

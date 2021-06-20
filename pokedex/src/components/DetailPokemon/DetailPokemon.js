@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom'
 import { GlobalStateContext } from "../../global/GlobalStateContext";
-import { Container, Identificacao, Button, Pokemon, Img, About, Type, Card1, Abilities, Stats } from "./StyledDetailPage";
+import { Container, Identificacao, Button, Pokemon, Img, About, Type, Abilities, DivGraf, ValorPlot } from "./StyledDetailPage";
 
 export default function DetailPokemon() {
     const params = useParams();
@@ -28,10 +28,7 @@ export default function DetailPokemon() {
             })
             setpokedex(pokedexCopy)
         }
-
-        console.log("index: ", pokedex)
     }
-
     return (
 
         pokemons.map((pokemon) => {
@@ -45,7 +42,6 @@ export default function DetailPokemon() {
                             </Button>
                                
                         </Identificacao>
-
                         <Pokemon>
                             <Img>
                                 <div class="teste">
@@ -53,7 +49,6 @@ export default function DetailPokemon() {
                                     <img class="seg" src={pokemon.sprites.back_default} alt="Pokemon" />
                                 </div>
                             </Img>
-
                             <About>
                               <h2>Type:</h2>
                                 <Type>
@@ -66,20 +61,8 @@ export default function DetailPokemon() {
                                     )
                                 })}
                                 </Type>
-                                <Card1>
-                                    <Stats>
-                                        <h3>Stats:</h3>
-                                    {pokemon.stats.map((statsPokemon) => {
-                                        return (
-                                            <div>
-                                                <h4>{statsPokemon.stat.name}</h4>
-                                                <h4>{`: ${statsPokemon.base_stat}`}</h4>
-                                            </div>
-                                        )
-                                    })}
-                                    </Stats>
+                                    <h2>Abilities</h2>
                                     <Abilities>
-                                    <h3>Abilities:</h3>
                                 {pokemon.abilities.map((abilitiesPokemon) => {
                                     return (
                                         <div>
@@ -88,9 +71,16 @@ export default function DetailPokemon() {
                                     )
                                 })}
                                     </Abilities>
-                                </Card1>
                             </About>
                         </Pokemon>
+                        <DivGraf>    
+                            {pokemon.stats.map((statsPokemon) => {
+                                return (
+                                    <ValorPlot valor={`${statsPokemon.base_stat}%`}>{statsPokemon.stat.name}: {statsPokemon.base_stat}</ValorPlot>
+                                  
+                                )
+                            })}
+                        </DivGraf>
                     </Container >
                 )
             }
@@ -98,3 +88,69 @@ export default function DetailPokemon() {
 
     )
 }
+
+
+{/* <Container>
+<Identificacao>
+    <h2>{pokemon.id < 10 ? `N° 00${pokemon.id}` : pokemon.id < 100 ? `N° 0${pokemon.id}` : `N° ${pokemon.id}`} /{pokemon.name}</h2>
+    <Button>
+    <button onClick={() => addAndRemovePokemon(pokemon)}>Adicionar/Remover Pokedex</button> 
+    </Button>
+       
+</Identificacao>
+
+<Pokemon>
+    <Img>
+        <div class="teste">
+            <img class="pri" src={pokemon.sprites.front_default} alt="Pokemon" />
+            <img class="seg" src={pokemon.sprites.back_default} alt="Pokemon" />
+        </div>
+    </Img>
+
+    <About>
+      <h2>Type:</h2>
+        <Type>
+        {pokemon.types.map((typePokemon) => {
+            return (
+
+                <div>
+                    <p>{typePokemon.type.name}</p>
+                </div>
+            )
+        })}
+        </Type>
+        <Card1>
+            <Stats>
+                <h3>Stats:</h3>
+            {pokemon.stats.map((statsPokemon) => {
+                return (
+                    <div>
+                        <h4>{statsPokemon.stat.name}</h4>
+                        <h4>{`: ${statsPokemon.base_stat}`}</h4>
+                    </div>
+                )
+            })}
+            </Stats>
+            <Abilities>
+            <h3>Abilities:</h3>
+        {pokemon.abilities.map((abilitiesPokemon) => {
+            return (
+                <div>
+                    <h4>{abilitiesPokemon.ability.name}</h4>
+                </div>
+            )
+        })}
+            </Abilities>
+        </Card1>
+    </About>
+</Pokemon>
+
+<DivGraf>    
+    {pokemon.stats.map((statsPokemon) => {
+        return (
+            <ValorPlot valor={`${statsPokemon.base_stat}%`}>{statsPokemon.base_stat}</ValorPlot>
+          
+        )
+    })}
+</DivGraf>
+</Container > */}
