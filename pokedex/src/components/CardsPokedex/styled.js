@@ -1,11 +1,27 @@
 import styled from "styled-components";
+import { keyframes } from 'styled-components'
+
+const Heading = keyframes`
+     0%, 20% 60%, 100%{
+        ---webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+    40% {
+     ---webkit-transform: translateY(-20px);
+        transform: translateY(-20px)
+
+    }
+    80%{
+     ---webkit-transform: translateY(-18px);
+        transform: translateY(-10px)
+    }
+`
+
 
 export const Card = styled.div`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 5fr 1fr 1fr;
     width: 200px;
     margin: 1rem;
+    :hover{animation: ${Heading} 1s;}
 `
 
 export const ButtonsTag = styled.div`
@@ -14,6 +30,13 @@ export const ButtonsTag = styled.div`
     height: 35px;
     button{
         width: 100%;
+        background-color: #35ACCE;
+        border: none;
+        color: white;
+        cursor: pointer;
+        &:hover{
+            background-color: #006593;
+        }
     }
     grid-row: 3;
     button {
@@ -22,7 +45,6 @@ export const ButtonsTag = styled.div`
 `
 
 export const ImgTag = styled.div`
-    grid-column: 1/ span 3;
     display: flex;
     justify-content: center;
     background-size: cover;
@@ -36,12 +58,14 @@ export const ImgTag = styled.div`
 `
 
 export const NameId = styled.div`
-    grid-column: 1/ span 3;
-    grid-row: 2;
     display: flex;
     justify-content: space-around;
     align-items: center;
     align-content: center;
     height: 40px;
     
+`
+
+export const ContainerPai = styled.div`
+    width: auto;
 `

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom'
 import { GlobalStateContext } from "../../global/GlobalStateContext";
-import { Sprites, Tag, ContainerType, ContainerStats, ContainerAbilities, Geral } from "./StyledDetailPage";
+import { Container, Identificacao, Button, Pokemon, Img, About, Type, Abilities, DivGraf, ValorPlot } from "./StyledDetailPage";
 
 export default function DetailPokemon() {
     const params = useParams();
@@ -28,59 +28,129 @@ export default function DetailPokemon() {
             })
             setpokedex(pokedexCopy)
         }
-
-        console.log("index: ", pokedex)
     }
-
     return (
 
         pokemons.map((pokemon) => {
             if (pokemon.id == params.id) {
                 return (
-                    <Geral>
-                        <Tag>
-                            <h4>{pokemon.id < 10 ? `N° 00${pokemon.id}` : pokemon.id < 100 ? `N° 0${pokemon.id}` : `N° ${pokemon.id}`} /
-                                <button onClick={() => addAndRemovePokemon(pokemon)}>Adicionar/Remover Pokedex</button> </h4>
-                            <h2>{pokemon.name}</h2>
-                            <h3>Types:</h3>
-                            {pokemon.types.map((typePokemon) => {
-                                return (
-                                    <ContainerType>
-                                        <p>{typePokemon.type.name}</p>
-                                    </ContainerType>
-                                )
-                            })}
+                    <Container>
+                        <Identificacao>
+                            <h2>{pokemon.id < 10 ? `N° 00${pokemon.id}` : pokemon.id < 100 ? `N° 0${pokemon.id}` : `N° ${pokemon.id}`} /{pokemon.name}</h2>
+                            <Button>
+                            <button onClick={() => addAndRemovePokemon(pokemon)}>Adicionar/Remover Pokedex</button> 
+                            </Button>
+                               
+                        </Identificacao>
+                        <Pokemon>
+                            <Img>
+                                <div class="teste">
+                                    <img class="pri" src={pokemon.sprites.front_default} alt="Pokemon" />
+                                    <img class="seg" src={pokemon.sprites.back_default} alt="Pokemon" />
+                                </div>
+                            </Img>
+                            <About>
+                              <h2>Type:</h2>
+                                <Type>
+                                {pokemon.types.map((typePokemon) => {
+                                    return (
 
-
-                            <h3>Stats:</h3>
+                                        <div>
+                                            <p>{typePokemon.type.name}</p>
+                                        </div>
+                                    )
+                                })}
+                                </Type>
+                                    <h2>Abilities</h2>
+                                    <Abilities>
+                                {pokemon.abilities.map((abilitiesPokemon) => {
+                                    return (
+                                        <div>
+                                            <h4>{abilitiesPokemon.ability.name}</h4>
+                                        </div>
+                                    )
+                                })}
+                                    </Abilities>
+                            </About>
+                        </Pokemon>
+                        <DivGraf>    
                             {pokemon.stats.map((statsPokemon) => {
                                 return (
-                                    <ContainerStats>
-                                        <h4>{statsPokemon.stat.name}</h4>
-                                        <h4>{`: ${statsPokemon.base_stat}`}</h4>
-                                    </ContainerStats>
-
+                                    <ValorPlot valor={`${statsPokemon.base_stat}%`}>{statsPokemon.stat.name}: {statsPokemon.base_stat}</ValorPlot>
+                                  
                                 )
                             })}
-                            <h3>Abilities:</h3>
-                            {pokemon.abilities.map((abilitiesPokemon) => {
-                                return (
-                                    <ContainerAbilities>
-                                        <h4>{abilitiesPokemon.ability.name}</h4>
-                                    </ContainerAbilities>
-                                )
-                            })}
-                        </Tag>
-                        <Sprites>
-                            <div class="teste">
-                                <img class="pri" src={pokemon.sprites.front_default} alt="Pokemon" />
-                                <img class="seg" src={pokemon.sprites.back_default} alt="Pokemon" />
-                            </div>
-                        </Sprites>
-                    </Geral >
+                        </DivGraf>
+                    </Container >
                 )
             }
         })
 
     )
 }
+
+
+{/* <Container>
+<Identificacao>
+    <h2>{pokemon.id < 10 ? `N° 00${pokemon.id}` : pokemon.id < 100 ? `N° 0${pokemon.id}` : `N° ${pokemon.id}`} /{pokemon.name}</h2>
+    <Button>
+    <button onClick={() => addAndRemovePokemon(pokemon)}>Adicionar/Remover Pokedex</button> 
+    </Button>
+       
+</Identificacao>
+
+<Pokemon>
+    <Img>
+        <div class="teste">
+            <img class="pri" src={pokemon.sprites.front_default} alt="Pokemon" />
+            <img class="seg" src={pokemon.sprites.back_default} alt="Pokemon" />
+        </div>
+    </Img>
+
+    <About>
+      <h2>Type:</h2>
+        <Type>
+        {pokemon.types.map((typePokemon) => {
+            return (
+
+                <div>
+                    <p>{typePokemon.type.name}</p>
+                </div>
+            )
+        })}
+        </Type>
+        <Card1>
+            <Stats>
+                <h3>Stats:</h3>
+            {pokemon.stats.map((statsPokemon) => {
+                return (
+                    <div>
+                        <h4>{statsPokemon.stat.name}</h4>
+                        <h4>{`: ${statsPokemon.base_stat}`}</h4>
+                    </div>
+                )
+            })}
+            </Stats>
+            <Abilities>
+            <h3>Abilities:</h3>
+        {pokemon.abilities.map((abilitiesPokemon) => {
+            return (
+                <div>
+                    <h4>{abilitiesPokemon.ability.name}</h4>
+                </div>
+            )
+        })}
+            </Abilities>
+        </Card1>
+    </About>
+</Pokemon>
+
+<DivGraf>    
+    {pokemon.stats.map((statsPokemon) => {
+        return (
+            <ValorPlot valor={`${statsPokemon.base_stat}%`}>{statsPokemon.base_stat}</ValorPlot>
+          
+        )
+    })}
+</DivGraf>
+</Container > */}
