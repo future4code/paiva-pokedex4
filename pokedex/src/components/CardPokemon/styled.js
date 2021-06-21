@@ -21,7 +21,7 @@ const Heading = keyframes`
 export const Card = styled.div`
     width: 200px;
     margin: 1rem;
-    :hover{animation: ${Heading} 1s;
+    :hover{animation: ${Heading} 1s};
 `
 
 export const ButtonsTag = styled.div`

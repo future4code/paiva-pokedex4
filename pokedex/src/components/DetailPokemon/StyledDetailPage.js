@@ -123,13 +123,14 @@ export const DivGraf = styled.div`
     margin-top: 1rem;
     width: 600px;
     background-color: #35acce;
-`;
+`
 
 export const ValorPlot = styled.p`
   width: ${(props) => props.valor};
   color: white;
   background-color: white;
   color: black;
+
   margin-left: 10px;
   margin-right: 10px;
 `;
