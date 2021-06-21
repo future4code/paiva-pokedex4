@@ -9,7 +9,7 @@ export default function CardPokemon() {
     const history = useHistory()
 
     const {pokedex, setpokedex, pokemons} = useContext(GlobalStateContext)
-
+    
     const addPokemonToPokedex = (pokemonToAdd) => {
         const index = pokedex.findIndex((pokemonInPokedex) => {
             if (pokemonInPokedex.id === pokemonToAdd.id) {
@@ -24,6 +24,7 @@ export default function CardPokemon() {
             setpokedex(pokedexCopy)
         }        
     }
+
 
     return (
         pokemons && pokemons.map((pokemon) => {
